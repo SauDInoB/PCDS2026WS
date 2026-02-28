@@ -1,0 +1,732 @@
+---
+title: "Python for Health Data Science"
+subtitle: "Session 1 · Configuration, Tools & Best Practices"
+date: "2 March 2026"
+format:
+  revealjs:
+    theme: simple
+    css: custom.css
+    slide-number: true
+    chalkboard: false
+    transition: none
+    transition-speed: default
+    center: true
+    highlight-style: github
+    code-line-numbers: true
+    footer: "Winter School 2026 · Python para Ciência de Dados em Saúde"
+execute:
+  echo: true
+  eval: false
+---
+
+# Welcome {background-color="#2C3E50"}
+
+## Agenda for Today
+
+::: {.incremental}
+- Why Python?
+- Installing Python
+- What is an IDE? → Focus on **Positron**
+- Version control with **Git & GitHub**
+- Coding **best practices**
+:::
+
+::: {.notes}
+Give participants a minute to settle. Mention that today is all setup — it may feel slow but it's the foundation for everything else in the week.
+:::
+
+---
+
+## Week at a Glance
+
+| Date | Time | Topic | Lead |
+|------|------|-------|------|
+| 02 Mar | 14h–16h | **Config / Install / Best Practices** | **TJ** |
+| 02 Mar | 16h15–18h | Variables, Data Types, Functions | Abel |
+| 05 Mar | 14h–16h | Data Import / Statistics | DMD |
+| 05 Mar | 16h15–17h | Data Visualisation | DMD |
+| 05 Mar | 17h–18h | Interfaces | DMD |
+| 06 Mar | 14h–16h | Regression Models | DMD |
+| 06 Mar | 16h15–18h | AI (Ollama, Positron Data Assistant) | DMD / TJ |
+
+::: {.notes}
+Quick orientation. Emphasise that each session builds on the previous one — today's setup is needed for everything else.
+:::
+
+# Why Python? {background-color="#2C3E50"}
+
+## What is Programming?
+
+> Writing **instructions** that a computer can execute, step by step.
+
+- A **program** is a recipe: precise, unambiguous, repeatable
+- **Python** is a *language* — a way to write those instructions
+
+. . .
+
+*You don't need to be a mathematician. You need to be able to think logically.*
+
+::: {.notes}
+Analogy: a cooking recipe. If you tell a chef "add some salt", they use judgment. A computer cannot — you must be exact. That precision is what programming teaches.
+:::
+
+---
+
+## Why Python?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Easy to read**
+```python
+# Find patients over 65
+elderly = [p for p in patients
+           if p.age > 65]
+```
+Almost reads like English.
+:::
+
+::: {.column width="50%"}
+**Huge ecosystem**
+
+- `pandas` — data tables
+- `numpy` — numerical computing
+- `scipy` — statistics
+- `matplotlib` / `seaborn` — plots
+- `scikit-learn` — machine learning
+- `streamlit` — web apps
+:::
+
+::::
+
+::: {.notes}
+Show the code block — even a non-programmer can guess what it does. That readability lowers the barrier to entry enormously.
+:::
+
+---
+
+## Python in Health Data Science
+
+Real-world uses in medicine and research:
+
+::: {.incremental}
+- 🏥 **Clinical data analysis** — patient cohort studies, survival analysis
+- 🧬 **Genomics & bioinformatics** — sequence analysis, variant calling
+- 🩻 **Medical imaging** — DICOM processing, deep learning diagnostics
+- 📊 **Public health** — epidemiological modelling (COVID-19 models were largely Python)
+- 📝 **Reproducible research** — Quarto notebooks combining code + text
+:::
+
+::: {.notes}
+If anyone is sceptical about whether Python is "serious" enough for medicine, mention that Nature, The Lancet, and NEJM have all published studies with Python-based analyses.
+:::
+
+---
+
+## Programming Languages: The Landscape
+
+| Language | Strengths | Role in health data |
+|----------|-----------|---------------------|
+| 🐍 **Python** | General purpose, ML/AI, readable | Analysis, models, pipelines, apps |
+| 📊 **R** | Statistics, visualisation | Clinical trials, bioinformatics |
+| 🗃️ **SQL** | Querying databases | Electronic records, registries |
+| ⚡ **Julia** | High-performance numerics | Simulations, pharmacokinetics |
+| 🔧 **Bash** | Automation, scripting | Data pipelines, batch processing |
+
+::: {.callout-tip}
+They complement each other. Many real workflows combine **SQL** to extract, **Python** to analyse, and **R** for statistical reporting.
+:::
+
+::: {.notes}
+No need to learn them all. The goal today is Python. But understanding the landscape helps you choose the right tool — and understand why Python is increasingly the default for data science in health.
+:::
+
+# Installing Python {background-color="#2C3E50"}
+
+## The Terminal — Your New Best Friend
+
+The **terminal** (Command Prompt / PowerShell on Windows, Terminal on macOS) lets you talk to your computer with text commands.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Open it:**
+
+- **Windows** → search "Command Prompt" or "PowerShell"
+- **macOS** → search "Terminal" (or use Spotlight: `⌘ Space`)
+:::
+
+::: {.column width="50%"}
+**Essential commands:**
+
+```bash
+# Where am I?
+pwd
+
+# List files here
+ls        # macOS
+dir       # Windows
+
+# Move into a folder
+cd my_project
+```
+:::
+
+::::
+
+::: {.notes}
+Spend 2 minutes on this. Open it live. Type `pwd` and `ls`. The goal is just to demystify it — many beginners are afraid of the terminal. Reassure them: you can't break anything by typing wrong commands (within reason).
+:::
+
+---
+
+## Python Versions
+
+- Current stable release: **Python 3.x** (use 3.11 or 3.12)
+- **Python 2 is dead** — don't install it
+- Version numbers: `3.12.2` → major `.` minor `.` patch
+
+. . .
+
+```bash
+# Check if Python is already installed
+python --version
+# or
+python3 --version
+```
+
+::: {.notes}
+Someone in the room may already have Python installed (e.g. via Anaconda). It's worth checking before installing again.
+:::
+
+---
+
+## Installing Python — Windows
+
+1. Go to **[python.org/downloads](https://www.python.org/downloads)**
+2. Download the latest **Python 3.x** installer
+3. Run the installer — **check "Add Python to PATH"** ✅
+4. Verify in **Command Prompt**:
+
+```bash
+python --version
+```
+
+::: {.callout-warning}
+Always tick "Add Python to PATH" during installation, or nothing will work from the terminal.
+:::
+
+::: {.notes}
+Live demo here. Walk slowly through the installer. The PATH checkbox is the single most common mistake beginners make.
+:::
+
+---
+
+## Installing Python — macOS
+
+**Option A — Direct (recommended for beginners):**
+
+1. Go to **[python.org/downloads](https://www.python.org/downloads)**
+2. Download the macOS installer (`.pkg`)
+3. Run and follow prompts
+4. Verify in **Terminal**: `python3 --version`
+
+. . .
+
+**Option B — Homebrew** *(package manager, more powerful)*:
+
+```bash
+# Install Homebrew first (from brew.sh)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Then install Python
+brew install python
+```
+
+::: {.notes}
+Homebrew is worth mentioning for Mac users who want to manage multiple tools. Don't spend too long on it — for today's session the direct installer is perfectly fine.
+:::
+
+---
+
+## A Word on Anaconda
+
+You'll often see **Anaconda** (or **Miniconda**) mentioned in tutorials — it's an alternative Python distribution bundled with data science packages and its own package manager (`conda`).
+
+. . .
+
+| | Python.org | Anaconda |
+|--|--|--|
+| Install size | Small | Large (~3 GB) |
+| Package manager | `pip` | `conda` + `pip` |
+| Popular in | General / web | Academia / data science |
+
+. . .
+
+::: {.callout-note}
+We use plain Python + `pip` this week. If a colleague sends you a `conda` command, it works the same way — just swap `pip install` → `conda install`.
+:::
+
+::: {.notes}
+Don't install Anaconda today. Just mention it so students don't panic when they see it elsewhere. The key message: it's not magic, just a different way to get Python and packages.
+:::
+
+---
+
+## What is `pip`?
+
+`pip` = **Python's package installer**
+
+```bash
+# Install a package
+pip install pandas
+
+# Install a specific version
+pip install pandas==2.2.0
+
+# List installed packages
+pip list
+```
+
+. . .
+
+Think of it like an **app store for Python libraries**.
+
+::: {.notes}
+They won't use pip directly today, but they'll see it used throughout the week. Just plant the concept.
+:::
+
+---
+
+## What is a Virtual Environment?
+
+A **virtual environment** isolates packages per project — no conflicts between projects.
+
+```bash
+# Create a virtual environment
+python -m venv .venv
+
+# Activate it (macOS/Linux)
+source .venv/bin/activate
+
+# Activate it (Windows)
+.venv\Scripts\activate
+
+# Install packages inside it
+pip install pandas numpy
+```
+
+::: {.callout-tip}
+Positron (our IDE) manages virtual environments for you automatically.
+:::
+
+::: {.notes}
+Don't dive deep here — just mention it exists. Positron makes this transparent. Come back to it if asked.
+:::
+
+# What is an IDE? {background-color="#2C3E50"}
+
+## Text Editor vs IDE
+
+| | Text Editor | IDE |
+|--|-------------|-----|
+| Edit code | ✅ | ✅ |
+| Syntax highlighting | ✅ | ✅ |
+| Autocomplete | ❌ / basic | ✅ |
+| Run code inline | ❌ | ✅ |
+| Variable explorer | ❌ | ✅ |
+| Debug tools | ❌ | ✅ |
+| Git integration | ❌ | ✅ |
+
+*Examples: Notepad, nano = editors · VS Code, Positron, PyCharm = IDEs*
+
+::: {.notes}
+You *can* write Python in Notepad. You can also cook on a camping stove. But for daily work, you want a proper kitchen.
+:::
+
+---
+
+## VS Code — Quick Overview
+
+**Visual Studio Code** (by Microsoft) is the world's most popular code editor.
+
+- Free, open source, cross-platform
+- Huge extension marketplace
+- Works for Python, R, JavaScript, …
+- **Not** specialised for data science
+
+. . .
+
+::: {.callout-note}
+We mention VS Code because you'll see it everywhere online. But for *data science*, we'll use **Positron**.
+:::
+
+::: {.notes}
+Show VS Code briefly if you have it open. Point out the sidebar, terminal, and extension panel. Then pivot to Positron.
+:::
+
+---
+
+## Positron — The Data Science IDE
+
+**Positron** is a new IDE built by **Posit** (creators of RStudio), forked from VS Code.
+
+:::: {.columns}
+
+::: {.column width="55%"}
+**Why Positron for data science?**
+
+- Built-in **variable explorer**
+- Interactive **data viewer** (like a spreadsheet)
+- **Plots panel** — no pop-up windows
+- First-class **Quarto** support
+- Works with **Python and R**
+- AI assistant (**Positron Data Assistant**)
+:::
+
+::: {.column width="45%"}
+![Positron interface](https://positron.posit.co/images/positron-screenshot.png)
+:::
+
+::::
+
+::: {.notes}
+This is the main sell. If students have used RStudio, Positron will feel immediately familiar. If not, highlight the data viewer — seeing a table without writing `print(df)` is a game changer for beginners.
+:::
+
+---
+
+## Installing Positron
+
+1. Go to **[positron.posit.co](https://positron.posit.co)**
+2. Download for your OS (Windows / macOS)
+3. Install and open
+4. Positron will detect your Python installation automatically
+
+. . .
+
+**First steps in Positron:**
+
+- Open a folder as your project
+- Create a new `.py` file
+- Run your first line: `print("Hello, health data!")`
+- Observe the **Console**, **Variables**, and **Plots** panels
+
+::: {.notes}
+Live demo. Create a new folder, open it in Positron, create a .py file, type a few lines and run them. Show the variable explorer populating as you assign variables.
+:::
+
+---
+
+## Positron — Interface Tour
+
+| | **Left** | **Right** |
+|---|---|---|
+| **Top** | 📁 Explorer (files) | ✏️ Editor — your `.py` files |
+| **Bottom** | ⌨️ Console (output) | 📊 Variables · 📈 Plots / Viewer |
+
+::: {.notes}
+Point to each panel while running code live. Assign a variable in the editor, run it, show it appear in Variables. Load a CSV and show it in the Viewer.
+:::
+
+---
+
+## Your First Python Lines
+
+Open Positron → new file → type these → press **Run**:
+
+```python
+# A greeting
+print("Hello, health data!")
+
+# Variables
+patient_age = 34
+bmi = 22.5
+is_diabetic = False
+
+# A simple calculation
+height_m = 1.72
+weight_kg = 74
+bmi = weight_kg / height_m ** 2
+print(f"BMI: {bmi:.1f}")
+```
+
+. . .
+
+Watch the **Variables panel** fill up as each line runs. ✨
+
+::: {.notes}
+This is the payoff moment for the whole installation section. Keep it light and fun. If someone has an error, use it as a teaching moment — reading error messages is a key skill.
+:::
+
+---
+
+## ☕ Break — 10 minutes {background-color="#2C3E50"}
+
+*Back at [time + 10 min]*
+
+::: {.notes}
+Good moment to help anyone still stuck on installation before moving to Git.
+:::
+
+# Git & GitHub {background-color="#2C3E50"}
+
+## Why Version Control?
+
+> "Which file is the final version?"
+
+. . .
+
+```
+analysis_final.py
+analysis_final_v2.py
+analysis_final_FINAL.py
+analysis_final_FINAL_use_this_one.py  ← 😅
+```
+
+. . .
+
+**Version control solves this:**
+
+- Every change is tracked with a message
+- You can go back to any point in history
+- Multiple people can work on the same project
+- Nothing is ever truly lost
+
+::: {.notes}
+Every researcher recognises the "final_FINAL" problem. This is the emotional hook — version control is the professional solution.
+:::
+
+---
+
+## GitHub.com
+
+**GitHub** is a cloud platform for hosting Git repositories.
+
+::: {.incremental}
+- **Public repos** — open source, visible to everyone
+- **Private repos** — only you (and collaborators) can see them
+- Great for **sharing analysis code** with collaborators or reviewers
+- Journals increasingly require code availability → GitHub is the standard
+:::
+
+. . .
+
+→ Create a free account at **[github.com](https://github.com)**
+
+::: {.notes}
+Mention that GitHub is owned by Microsoft. For health data: never put patient data in a GitHub repo — only code. Data stays local or in a secure server.
+:::
+
+---
+
+## GitHub Desktop
+
+**GitHub Desktop** makes Git visual — no command line needed.
+
+**Install:** [desktop.github.com](https://desktop.github.com)
+
+. . .
+
+**Basic workflow:**
+
+1. **Create** a new repository (or Clone an existing one)
+2. Edit files in your project
+3. GitHub Desktop shows **what changed**
+4. Write a short commit message → **Commit to main**
+5. **Push** to sync with GitHub.com
+
+::: {.notes}
+Live demo: create a new repo in GitHub Desktop, create a Python file in Positron, go back to GitHub Desktop, show the diff, write a commit message, commit, push. Open github.com to show it live online.
+:::
+
+---
+
+## Git Workflow — In Practice
+
+```
+Your Computer                     GitHub.com
+─────────────────                 ─────────────────
+
+ [Edit files]
+      │
+      ▼
+ [git commit]  ──── push ──────►  [Remote repo]
+      │                                  │
+      ◄──────────── pull ────────────────┘
+```
+
+*With GitHub Desktop: all of this is point-and-click.*
+
+::: {.notes}
+Reinforce the mental model. "Commit" saves locally, "push" sends to the cloud, "pull" brings cloud changes back to you.
+:::
+
+# Best Practices {background-color="#2C3E50"}
+
+## Why Best Practices Matter
+
+Code is read **many more times** than it is written.
+
+. . .
+
+*"Always write code as if the person who will maintain it is a violent psychopath who knows where you live."*
+— Martin Golding
+
+. . .
+
+More practically: **future you** will thank present you.
+
+::: {.notes}
+Lighten the mood with the quote, then bring it back to reality. In health research, code may need to be audited, reproduced, or handed over to colleagues.
+:::
+
+---
+
+## PEP 8 — Python's Style Guide
+
+**PEP 8** is the official Python style guide. Key rules:
+
+```python
+# ✅ Good
+patient_age = 65
+MAX_RETRIES = 3
+
+def calculate_bmi(weight_kg, height_m):
+    return weight_kg / height_m ** 2
+
+# ❌ Avoid
+PatientAge = 65        # CamelCase for variables
+x = 65                 # cryptic names
+def calc(w,h): return w/h**2  # no spaces, unclear
+```
+
+::: {.notes}
+The point isn't memorising PEP 8 — Positron and VS Code flag violations automatically. The point is awareness.
+:::
+
+---
+
+## Naming Conventions
+
+| What | Convention | Example |
+|------|-----------|---------|
+| Variables & functions | `snake_case` | `patient_id`, `load_data()` |
+| Constants | `UPPER_SNAKE_CASE` | `MAX_AGE = 120` |
+| Classes | `PascalCase` | `PatientRecord` |
+| Private (internal) | `_leading_underscore` | `_raw_data` |
+
+. . .
+
+**Rule of thumb:** names should explain *what* something is, not *how* it's stored.
+
+```python
+# ❌ df2      → what is this?
+# ✅ filtered_patients  → clear!
+```
+
+---
+
+## Comments & Docstrings
+
+```python
+# Single-line comment: explain the WHY, not the WHAT
+
+# ❌ Bad: obvious comment
+x = x + 1  # add 1 to x
+
+# ✅ Good: explains intent
+age += 1  # adjust for 0-indexed age groups in the dataset
+
+def normalise_score(score, max_score):
+    """
+    Normalise a raw score to a 0–1 scale.
+
+    Parameters
+    ----------
+    score : float
+        Raw score value.
+    max_score : float
+        Maximum possible score.
+
+    Returns
+    -------
+    float
+        Normalised score between 0 and 1.
+    """
+    return score / max_score
+```
+
+::: {.notes}
+Docstrings are picked up by Positron's hover documentation and by tools like Sphinx for auto-generating docs. Encourage writing them from day one.
+:::
+
+---
+
+## Project Folder Structure
+
+```
+my_project/
+├── data/
+│   ├── raw/          ← original files, never modified
+│   └── processed/    ← cleaned versions
+├── notebooks/        ← exploratory .ipynb or .qmd files
+├── scripts/          ← reusable .py functions
+├── outputs/
+│   ├── figures/
+│   └── tables/
+├── README.md         ← what is this project?
+└── requirements.txt  ← which packages are needed
+```
+
+::: {.callout-tip}
+Keep `raw/` data read-only. Always work on copies in `processed/`.
+:::
+
+::: {.notes}
+This structure scales from a small homework project to a full research pipeline. The README and requirements.txt are what make a repo usable by others (or by you in 6 months).
+:::
+
+# What's Coming Next {background-color="#2C3E50"}
+
+## Session 2 — This Afternoon (16h15)
+
+**Variables, Data Types & Functions** · Led by Abel
+
+::: {.incremental}
+- Variable types: `int`, `float`, `str`, `bool`
+- Data structures: `list`, `dict`, `tuple`
+- Writing your own functions
+- Introduction to `numpy`, `pandas`, `scipy`
+:::
+
+. . .
+
+**Make sure you have:**
+- ✅ Python installed
+- ✅ Positron installed
+- ✅ GitHub Desktop installed + account created
+
+::: {.notes}
+This is the "exit ticket" — check that everyone has the tools ready before they leave. If someone is stuck on installation, this is the moment to help or arrange help during the break.
+:::
+
+---
+
+## Resources
+
+- **Python docs:** [docs.python.org](https://docs.python.org)
+- **Positron:** [positron.posit.co](https://positron.posit.co)
+- **GitHub Desktop:** [desktop.github.com](https://desktop.github.com)
+- **PEP 8:** [peps.python.org/pep-0008](https://peps.python.org/pep-0008)
+- **Course page:** [winterschool.med.up.pt](https://winterschool.med.up.pt/cursos/python-para-ciencia-de-dados-em-saude/)
+
+---
+
+## Questions? {background-color="#2C3E50"}
+
+::: {.r-fit-text}
+🐍
+:::
+
+*See you at 16h15!*

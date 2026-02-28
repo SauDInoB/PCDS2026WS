@@ -1,0 +1,18 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Python para Ciência de Dados em Saúde"
+  navbar: false
+
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: none
+    transition-speed: default
+    center: true
+    chalkboard: false
+    highlight-style: github
+    code-line-numbers: true
