@@ -1,0 +1,233 @@
+[
+  {
+    "objectID": "d1s1/session1.html#agenda-for-today",
+    "href": "d1s1/session1.html#agenda-for-today",
+    "title": "Python for Health Data Science",
+    "section": "Agenda for Today",
+    "text": "Agenda for Today\n\nWhy Python?\nInstalling Python\nWhat is an IDE? → Focus on Positron\nVersion control with Git & GitHub\nCoding best practices\n\n\nGive participants a minute to settle. Mention that today is all setup — it may feel slow but it’s the foundation for everything else in the week."
+  },
+  {
+    "objectID": "d1s1/session1.html#week-at-a-glance",
+    "href": "d1s1/session1.html#week-at-a-glance",
+    "title": "Python for Health Data Science",
+    "section": "Week at a Glance",
+    "text": "Week at a Glance\n\n\n\nDate\nTime\nTopic\nLead\n\n\n\n\n02 Mar\n14h–16h\nConfig / Install / Best Practices\nTJ\n\n\n02 Mar\n16h15–18h\nVariables, Data Types, Functions\nAbel\n\n\n05 Mar\n14h–16h\nData Import / Statistics\nDMD\n\n\n05 Mar\n16h15–17h\nData Visualisation\nDMD\n\n\n05 Mar\n17h–18h\nInterfaces\nDMD\n\n\n06 Mar\n14h–16h\nRegression Models\nDMD\n\n\n06 Mar\n16h15–18h\nAI (Ollama, Positron Data Assistant)\nDMD / TJ\n\n\n\n\nQuick orientation. Emphasise that each session builds on the previous one — today’s setup is needed for everything else."
+  },
+  {
+    "objectID": "d1s1/session1.html#what-is-programming",
+    "href": "d1s1/session1.html#what-is-programming",
+    "title": "Python for Health Data Science",
+    "section": "What is Programming?",
+    "text": "What is Programming?\n\nWriting instructions that a computer can execute, step by step.\n\n\nA program is a recipe: precise, unambiguous, repeatable\nPython is a language — a way to write those instructions\n\n\nYou don’t need to be a mathematician. You need to be able to think logically.\n\nAnalogy: a cooking recipe. If you tell a chef “add some salt”, they use judgment. A computer cannot — you must be exact. That precision is what programming teaches."
+  },
+  {
+    "objectID": "d1s1/session1.html#why-python-1",
+    "href": "d1s1/session1.html#why-python-1",
+    "title": "Python for Health Data Science",
+    "section": "Why Python?",
+    "text": "Why Python?\n\n\nEasy to read\n# Find patients over 65\nelderly = [p for p in patients\n           if p.age &gt; 65]\nAlmost reads like English.\n\nHuge ecosystem\n\npandas — data tables\nnumpy — numerical computing\nscipy — statistics\nmatplotlib / seaborn — plots\nscikit-learn — machine learning\nstreamlit — web apps\n\n\n\nShow the code block — even a non-programmer can guess what it does. That readability lowers the barrier to entry enormously."
+  },
+  {
+    "objectID": "d1s1/session1.html#python-in-health-data-science",
+    "href": "d1s1/session1.html#python-in-health-data-science",
+    "title": "Python for Health Data Science",
+    "section": "Python in Health Data Science",
+    "text": "Python in Health Data Science\nReal-world uses in medicine and research:\n\n🏥 Clinical data analysis — patient cohort studies, survival analysis\n🧬 Genomics & bioinformatics — sequence analysis, variant calling\n🩻 Medical imaging — DICOM processing, deep learning diagnostics\n📊 Public health — epidemiological modelling (COVID-19 models were largely Python)\n📝 Reproducible research — Quarto notebooks combining code + text\n\n\nIf anyone is sceptical about whether Python is “serious” enough for medicine, mention that Nature, The Lancet, and NEJM have all published studies with Python-based analyses."
+  },
+  {
+    "objectID": "d1s1/session1.html#programming-languages-the-landscape",
+    "href": "d1s1/session1.html#programming-languages-the-landscape",
+    "title": "Python for Health Data Science",
+    "section": "Programming Languages: The Landscape",
+    "text": "Programming Languages: The Landscape\n\n\n\n\n\n\n\n\nLanguage\nStrengths\nRole in health data\n\n\n\n\n🐍 Python\nGeneral purpose, ML/AI, readable\nAnalysis, models, pipelines, apps\n\n\n📊 R\nStatistics, visualisation\nClinical trials, bioinformatics\n\n\n🗃️ SQL\nQuerying databases\nElectronic records, registries\n\n\n⚡ Julia\nHigh-performance numerics\nSimulations, pharmacokinetics\n\n\n🔧 Bash\nAutomation, scripting\nData pipelines, batch processing\n\n\n\n\n\n\n\n\n\nTip\n\n\nThey complement each other. Many real workflows combine SQL to extract, Python to analyse, and R for statistical reporting.\n\n\n\n\nNo need to learn them all. The goal today is Python. But understanding the landscape helps you choose the right tool — and understand why Python is increasingly the default for data science in health."
+  },
+  {
+    "objectID": "d1s1/session1.html#the-terminal-your-new-best-friend",
+    "href": "d1s1/session1.html#the-terminal-your-new-best-friend",
+    "title": "Python for Health Data Science",
+    "section": "The Terminal — Your New Best Friend",
+    "text": "The Terminal — Your New Best Friend\nThe terminal (Command Prompt / PowerShell on Windows, Terminal on macOS) lets you talk to your computer with text commands.\n\n\nOpen it:\n\nWindows → search “Command Prompt” or “PowerShell”\nmacOS → search “Terminal” (or use Spotlight: ⌘ Space)\n\n\nEssential commands:\n# Where am I?\npwd\n\n# List files here\nls        # macOS\ndir       # Windows\n\n# Move into a folder\ncd my_project\n\n\nSpend 2 minutes on this. Open it live. Type pwd and ls. The goal is just to demystify it — many beginners are afraid of the terminal. Reassure them: you can’t break anything by typing wrong commands (within reason)."
+  },
+  {
+    "objectID": "d1s1/session1.html#python-versions",
+    "href": "d1s1/session1.html#python-versions",
+    "title": "Python for Health Data Science",
+    "section": "Python Versions",
+    "text": "Python Versions\n\nCurrent stable release: Python 3.x (use 3.11 or 3.12)\nPython 2 is dead — don’t install it\nVersion numbers: 3.12.2 → major . minor . patch\n\n\n# Check if Python is already installed\npython --version\n# or\npython3 --version\n\nSomeone in the room may already have Python installed (e.g. via Anaconda). It’s worth checking before installing again."
+  },
+  {
+    "objectID": "d1s1/session1.html#installing-python-windows",
+    "href": "d1s1/session1.html#installing-python-windows",
+    "title": "Python for Health Data Science",
+    "section": "Installing Python — Windows",
+    "text": "Installing Python — Windows\n\nGo to python.org/downloads\nDownload the latest Python 3.x installer\nRun the installer — check “Add Python to PATH” ✅\nVerify in Command Prompt:\n\npython --version\n\n\n\n\n\n\nWarning\n\n\nAlways tick “Add Python to PATH” during installation, or nothing will work from the terminal.\n\n\n\n\nLive demo here. Walk slowly through the installer. The PATH checkbox is the single most common mistake beginners make."
+  },
+  {
+    "objectID": "d1s1/session1.html#installing-python-macos",
+    "href": "d1s1/session1.html#installing-python-macos",
+    "title": "Python for Health Data Science",
+    "section": "Installing Python — macOS",
+    "text": "Installing Python — macOS\nOption A — Direct (recommended for beginners):\n\nGo to python.org/downloads\nDownload the macOS installer (.pkg)\nRun and follow prompts\nVerify in Terminal: python3 --version\n\n\nOption B — Homebrew (package manager, more powerful):\n# Install Homebrew first (from brew.sh)\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\n\n# Then install Python\nbrew install python\n\nHomebrew is worth mentioning for Mac users who want to manage multiple tools. Don’t spend too long on it — for today’s session the direct installer is perfectly fine."
+  },
+  {
+    "objectID": "d1s1/session1.html#a-word-on-anaconda",
+    "href": "d1s1/session1.html#a-word-on-anaconda",
+    "title": "Python for Health Data Science",
+    "section": "A Word on Anaconda",
+    "text": "A Word on Anaconda\nYou’ll often see Anaconda (or Miniconda) mentioned in tutorials — it’s an alternative Python distribution bundled with data science packages and its own package manager (conda).\n\n\n\n\n\nPython.org\nAnaconda\n\n\n\n\nInstall size\nSmall\nLarge (~3 GB)\n\n\nPackage manager\npip\nconda + pip\n\n\nPopular in\nGeneral / web\nAcademia / data science\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nWe use plain Python + pip this week. If a colleague sends you a conda command, it works the same way — just swap pip install → conda install.\n\n\n\n\nDon’t install Anaconda today. Just mention it so students don’t panic when they see it elsewhere. The key message: it’s not magic, just a different way to get Python and packages."
+  },
+  {
+    "objectID": "d1s1/session1.html#what-is-pip",
+    "href": "d1s1/session1.html#what-is-pip",
+    "title": "Python for Health Data Science",
+    "section": "What is pip?",
+    "text": "What is pip?\npip = Python’s package installer\n# Install a package\npip install pandas\n\n# Install a specific version\npip install pandas==2.2.0\n\n# List installed packages\npip list\n\nThink of it like an app store for Python libraries.\n\nThey won’t use pip directly today, but they’ll see it used throughout the week. Just plant the concept."
+  },
+  {
+    "objectID": "d1s1/session1.html#what-is-a-virtual-environment",
+    "href": "d1s1/session1.html#what-is-a-virtual-environment",
+    "title": "Python for Health Data Science",
+    "section": "What is a Virtual Environment?",
+    "text": "What is a Virtual Environment?\nA virtual environment isolates packages per project — no conflicts between projects.\n# Create a virtual environment\npython -m venv .venv\n\n# Activate it (macOS/Linux)\nsource .venv/bin/activate\n\n# Activate it (Windows)\n.venv\\Scripts\\activate\n\n# Install packages inside it\npip install pandas numpy\n\n\n\n\n\n\nTip\n\n\nPositron (our IDE) manages virtual environments for you automatically.\n\n\n\n\nDon’t dive deep here — just mention it exists. Positron makes this transparent. Come back to it if asked."
+  },
+  {
+    "objectID": "d1s1/session1.html#text-editor-vs-ide",
+    "href": "d1s1/session1.html#text-editor-vs-ide",
+    "title": "Python for Health Data Science",
+    "section": "Text Editor vs IDE",
+    "text": "Text Editor vs IDE\n\n\n\n\nText Editor\nIDE\n\n\n\n\nEdit code\n✅\n✅\n\n\nSyntax highlighting\n✅\n✅\n\n\nAutocomplete\n❌ / basic\n✅\n\n\nRun code inline\n❌\n✅\n\n\nVariable explorer\n❌\n✅\n\n\nDebug tools\n❌\n✅\n\n\nGit integration\n❌\n✅\n\n\n\nExamples: Notepad, nano = editors · VS Code, Positron, PyCharm = IDEs\n\nYou can write Python in Notepad. You can also cook on a camping stove. But for daily work, you want a proper kitchen."
+  },
+  {
+    "objectID": "d1s1/session1.html#vs-code-quick-overview",
+    "href": "d1s1/session1.html#vs-code-quick-overview",
+    "title": "Python for Health Data Science",
+    "section": "VS Code — Quick Overview",
+    "text": "VS Code — Quick Overview\nVisual Studio Code (by Microsoft) is the world’s most popular code editor.\n\nFree, open source, cross-platform\nHuge extension marketplace\nWorks for Python, R, JavaScript, …\nNot specialised for data science\n\n\n\n\n\n\n\n\nNote\n\n\nWe mention VS Code because you’ll see it everywhere online. But for data science, we’ll use Positron.\n\n\n\n\nShow VS Code briefly if you have it open. Point out the sidebar, terminal, and extension panel. Then pivot to Positron."
+  },
+  {
+    "objectID": "d1s1/session1.html#positron-the-data-science-ide",
+    "href": "d1s1/session1.html#positron-the-data-science-ide",
+    "title": "Python for Health Data Science",
+    "section": "Positron — The Data Science IDE",
+    "text": "Positron — The Data Science IDE\nPositron is a new IDE built by Posit (creators of RStudio), forked from VS Code.\n\n\nWhy Positron for data science?\n\nBuilt-in variable explorer\nInteractive data viewer (like a spreadsheet)\nPlots panel — no pop-up windows\nFirst-class Quarto support\nWorks with Python and R\nAI assistant (Positron Data Assistant)\n\n\n\n\n\nPositron interface\n\n\n\n\nThis is the main sell. If students have used RStudio, Positron will feel immediately familiar. If not, highlight the data viewer — seeing a table without writing print(df) is a game changer for beginners."
+  },
+  {
+    "objectID": "d1s1/session1.html#installing-positron",
+    "href": "d1s1/session1.html#installing-positron",
+    "title": "Python for Health Data Science",
+    "section": "Installing Positron",
+    "text": "Installing Positron\n\nGo to positron.posit.co\nDownload for your OS (Windows / macOS)\nInstall and open\nPositron will detect your Python installation automatically\n\n\nFirst steps in Positron:\n\nOpen a folder as your project\nCreate a new .py file\nRun your first line: print(\"Hello, health data!\")\nObserve the Console, Variables, and Plots panels\n\n\nLive demo. Create a new folder, open it in Positron, create a .py file, type a few lines and run them. Show the variable explorer populating as you assign variables."
+  },
+  {
+    "objectID": "d1s1/session1.html#positron-interface-tour",
+    "href": "d1s1/session1.html#positron-interface-tour",
+    "title": "Python for Health Data Science",
+    "section": "Positron — Interface Tour",
+    "text": "Positron — Interface Tour\n\n\n\n\nLeft\nRight\n\n\n\n\nTop\n📁 Explorer (files)\n✏️ Editor — your .py files\n\n\nBottom\n⌨️ Console (output)\n📊 Variables · 📈 Plots / Viewer\n\n\n\n\nPoint to each panel while running code live. Assign a variable in the editor, run it, show it appear in Variables. Load a CSV and show it in the Viewer."
+  },
+  {
+    "objectID": "d1s1/session1.html#your-first-python-lines",
+    "href": "d1s1/session1.html#your-first-python-lines",
+    "title": "Python for Health Data Science",
+    "section": "Your First Python Lines",
+    "text": "Your First Python Lines\nOpen Positron → new file → type these → press Run:\n# A greeting\nprint(\"Hello, health data!\")\n\n# Variables\npatient_age = 34\nbmi = 22.5\nis_diabetic = False\n\n# A simple calculation\nheight_m = 1.72\nweight_kg = 74\nbmi = weight_kg / height_m ** 2\nprint(f\"BMI: {bmi:.1f}\")\n\nWatch the Variables panel fill up as each line runs. ✨\n\nThis is the payoff moment for the whole installation section. Keep it light and fun. If someone has an error, use it as a teaching moment — reading error messages is a key skill."
+  },
+  {
+    "objectID": "d1s1/session1.html#break-10-minutes",
+    "href": "d1s1/session1.html#break-10-minutes",
+    "title": "Python for Health Data Science",
+    "section": "☕ Break — 10 minutes",
+    "text": "☕ Break — 10 minutes\nBack at [time + 10 min]\n\nGood moment to help anyone still stuck on installation before moving to Git."
+  },
+  {
+    "objectID": "d1s1/session1.html#why-version-control",
+    "href": "d1s1/session1.html#why-version-control",
+    "title": "Python for Health Data Science",
+    "section": "Why Version Control?",
+    "text": "Why Version Control?\n\n“Which file is the final version?”\n\n\nanalysis_final.py\nanalysis_final_v2.py\nanalysis_final_FINAL.py\nanalysis_final_FINAL_use_this_one.py  ← 😅\n\n\nVersion control solves this:\n\nEvery change is tracked with a message\nYou can go back to any point in history\nMultiple people can work on the same project\nNothing is ever truly lost\n\n\nEvery researcher recognises the “final_FINAL” problem. This is the emotional hook — version control is the professional solution."
+  },
+  {
+    "objectID": "d1s1/session1.html#github.com",
+    "href": "d1s1/session1.html#github.com",
+    "title": "Python for Health Data Science",
+    "section": "GitHub.com",
+    "text": "GitHub.com\nGitHub is a cloud platform for hosting Git repositories.\n\nPublic repos — open source, visible to everyone\nPrivate repos — only you (and collaborators) can see them\nGreat for sharing analysis code with collaborators or reviewers\nJournals increasingly require code availability → GitHub is the standard\n\n\n→ Create a free account at github.com\n\nMention that GitHub is owned by Microsoft. For health data: never put patient data in a GitHub repo — only code. Data stays local or in a secure server."
+  },
+  {
+    "objectID": "d1s1/session1.html#github-desktop",
+    "href": "d1s1/session1.html#github-desktop",
+    "title": "Python for Health Data Science",
+    "section": "GitHub Desktop",
+    "text": "GitHub Desktop\nGitHub Desktop makes Git visual — no command line needed.\nInstall: desktop.github.com\n\nBasic workflow:\n\nCreate a new repository (or Clone an existing one)\nEdit files in your project\nGitHub Desktop shows what changed\nWrite a short commit message → Commit to main\nPush to sync with GitHub.com\n\n\nLive demo: create a new repo in GitHub Desktop, create a Python file in Positron, go back to GitHub Desktop, show the diff, write a commit message, commit, push. Open github.com to show it live online."
+  },
+  {
+    "objectID": "d1s1/session1.html#git-workflow-in-practice",
+    "href": "d1s1/session1.html#git-workflow-in-practice",
+    "title": "Python for Health Data Science",
+    "section": "Git Workflow — In Practice",
+    "text": "Git Workflow — In Practice\nYour Computer                     GitHub.com\n─────────────────                 ─────────────────\n\n [Edit files]\n      │\n      ▼\n [git commit]  ──── push ──────►  [Remote repo]\n      │                                  │\n      ◄──────────── pull ────────────────┘\nWith GitHub Desktop: all of this is point-and-click.\n\nReinforce the mental model. “Commit” saves locally, “push” sends to the cloud, “pull” brings cloud changes back to you."
+  },
+  {
+    "objectID": "d1s1/session1.html#why-best-practices-matter",
+    "href": "d1s1/session1.html#why-best-practices-matter",
+    "title": "Python for Health Data Science",
+    "section": "Why Best Practices Matter",
+    "text": "Why Best Practices Matter\nCode is read many more times than it is written.\n\n“Always write code as if the person who will maintain it is a violent psychopath who knows where you live.” — Martin Golding\n\n\nMore practically: future you will thank present you.\n\nLighten the mood with the quote, then bring it back to reality. In health research, code may need to be audited, reproduced, or handed over to colleagues."
+  },
+  {
+    "objectID": "d1s1/session1.html#pep-8-pythons-style-guide",
+    "href": "d1s1/session1.html#pep-8-pythons-style-guide",
+    "title": "Python for Health Data Science",
+    "section": "PEP 8 — Python’s Style Guide",
+    "text": "PEP 8 — Python’s Style Guide\nPEP 8 is the official Python style guide. Key rules:\n# ✅ Good\npatient_age = 65\nMAX_RETRIES = 3\n\ndef calculate_bmi(weight_kg, height_m):\n    return weight_kg / height_m ** 2\n\n# ❌ Avoid\nPatientAge = 65        # CamelCase for variables\nx = 65                 # cryptic names\ndef calc(w,h): return w/h**2  # no spaces, unclear\n\nThe point isn’t memorising PEP 8 — Positron and VS Code flag violations automatically. The point is awareness."
+  },
+  {
+    "objectID": "d1s1/session1.html#naming-conventions",
+    "href": "d1s1/session1.html#naming-conventions",
+    "title": "Python for Health Data Science",
+    "section": "Naming Conventions",
+    "text": "Naming Conventions\n\n\n\nWhat\nConvention\nExample\n\n\n\n\nVariables & functions\nsnake_case\npatient_id, load_data()\n\n\nConstants\nUPPER_SNAKE_CASE\nMAX_AGE = 120\n\n\nClasses\nPascalCase\nPatientRecord\n\n\nPrivate (internal)\n_leading_underscore\n_raw_data\n\n\n\n\nRule of thumb: names should explain what something is, not how it’s stored.\n# ❌ df2      → what is this?\n# ✅ filtered_patients  → clear!"
+  },
+  {
+    "objectID": "d1s1/session1.html#comments-docstrings",
+    "href": "d1s1/session1.html#comments-docstrings",
+    "title": "Python for Health Data Science",
+    "section": "Comments & Docstrings",
+    "text": "Comments & Docstrings\n# Single-line comment: explain the WHY, not the WHAT\n\n# ❌ Bad: obvious comment\nx = x + 1  # add 1 to x\n\n# ✅ Good: explains intent\nage += 1  # adjust for 0-indexed age groups in the dataset\n\ndef normalise_score(score, max_score):\n    \"\"\"\n    Normalise a raw score to a 0–1 scale.\n\n    Parameters\n    ----------\n    score : float\n        Raw score value.\n    max_score : float\n        Maximum possible score.\n\n    Returns\n    -------\n    float\n        Normalised score between 0 and 1.\n    \"\"\"\n    return score / max_score\n\nDocstrings are picked up by Positron’s hover documentation and by tools like Sphinx for auto-generating docs. Encourage writing them from day one."
+  },
+  {
+    "objectID": "d1s1/session1.html#project-folder-structure",
+    "href": "d1s1/session1.html#project-folder-structure",
+    "title": "Python for Health Data Science",
+    "section": "Project Folder Structure",
+    "text": "Project Folder Structure\nmy_project/\n├── data/\n│   ├── raw/          ← original files, never modified\n│   └── processed/    ← cleaned versions\n├── notebooks/        ← exploratory .ipynb or .qmd files\n├── scripts/          ← reusable .py functions\n├── outputs/\n│   ├── figures/\n│   └── tables/\n├── README.md         ← what is this project?\n└── requirements.txt  ← which packages are needed\n\n\n\n\n\n\nTip\n\n\nKeep raw/ data read-only. Always work on copies in processed/.\n\n\n\n\nThis structure scales from a small homework project to a full research pipeline. The README and requirements.txt are what make a repo usable by others (or by you in 6 months)."
+  },
+  {
+    "objectID": "d1s1/session1.html#session-2-this-afternoon-16h15",
+    "href": "d1s1/session1.html#session-2-this-afternoon-16h15",
+    "title": "Python for Health Data Science",
+    "section": "Session 2 — This Afternoon (16h15)",
+    "text": "Session 2 — This Afternoon (16h15)\nVariables, Data Types & Functions · Led by Abel\n\nVariable types: int, float, str, bool\nData structures: list, dict, tuple\nWriting your own functions\nIntroduction to numpy, pandas, scipy\n\n\nMake sure you have: - ✅ Python installed - ✅ Positron installed - ✅ GitHub Desktop installed + account created\n\nThis is the “exit ticket” — check that everyone has the tools ready before they leave. If someone is stuck on installation, this is the moment to help or arrange help during the break."
+  },
+  {
+    "objectID": "d1s1/session1.html#resources",
+    "href": "d1s1/session1.html#resources",
+    "title": "Python for Health Data Science",
+    "section": "Resources",
+    "text": "Resources\n\nPython docs: docs.python.org\nPositron: positron.posit.co\nGitHub Desktop: desktop.github.com\nPEP 8: peps.python.org/pep-0008\nCourse page: winterschool.med.up.pt"
+  },
+  {
+    "objectID": "d1s1/session1.html#questions",
+    "href": "d1s1/session1.html#questions",
+    "title": "Python for Health Data Science",
+    "section": "Questions?",
+    "text": "Questions?\n\n🐍\n\nSee you at 16h15!"
+  },
+  {
+    "objectID": "Day 1 - Session 2/Worksheet_1.html#worksheet-1---fundamentals-practice",
+    "href": "Day 1 - Session 2/Worksheet_1.html#worksheet-1---fundamentals-practice",
+    "title": "Python para Ciência de Dados em Saúde",
+    "section": "Worksheet 1 - Fundamentals Practice",
+    "text": "Worksheet 1 - Fundamentals Practice\nThe median of a set of numbers is the value separating the higher half from the lower half of a data sample, a population, or a probability distribution. The median of a finite list of numbers is the “middle” number, when those numbers are listed in order from smallest to greatest.\nIf the data set has an odd number of observations, the middle one is selected (after arranging in ascending order). For example, the following list of seven numbers,\n1, 3, 3, 6, 7, 8, 9\nhas the median of 6, which is the fourth value.\nIf the data set has an even number of observations, there is no distinct middle value and the median is usually defined to be the arithmetic mean of the two middle values. For example, this data set of 8 numbers\n1, 2, 3, 4, 5, 6, 8, 9\nhas a median value of 4.5, which results from \\((4+5)/2\\)\nBody mass index (BMI) is a value derived from the mass (weight) and height of a person. The BMI is defined as the body mass divided by the square of the body height, and is expressed in units of kg/m2, resulting from mass in kilograms (kg) and height in metres (m).\nTASK A (20 minutes)\nCreate a function calc_median that will calculate the median of a given list of numbers. Use the bubble sort algorithm.\nInput: my_list = [13, 0, 12, 3, 2, 17, 8, 1] print(calc_median(my_list))\nOutput: 5.5\nTASK B (10 minutes)\nCrate a function compute_bmi(weight_kg, height_cm) that will calculate the BMI of a given weight (kg) and height (cm).\nInput: patient_weight = 70.3 patient_height = 181 print(compute_bmi(patient_weight, patient_height))\nOutput: 21.4584414395165"
+  }
+]

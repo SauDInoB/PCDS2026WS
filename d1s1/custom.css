@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* ── Color palette ───────────────────────────────────── */
+:root {
+  --color-deepnavy:  #2C3E50;
+  --color-warmtaupe: #C4A57B;
+  --color-softsage:  #7A9B9E;
+  --color-cream:     #F5F1E8;
+  --color-warmgrey:  #8B7B6B;
+}
+
+/* ── Typography ──────────────────────────────────────── */
+.reveal,
+.reveal p,
+.reveal li,
+.reveal td,
+.reveal th,
+.reveal blockquote {
+  font-family: 'IBM Plex Sans', sans-serif;
+  letter-spacing: -0.01em;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--color-deepnavy);
+}
+
+.reveal code,
+.reveal pre,
+.reveal pre code {
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0;
+}
+
+/* ── Links ───────────────────────────────────────────── */
+.reveal a {
+  color: var(--color-softsage);
+  text-decoration: underline;
+}
+.reveal a:hover {
+  color: var(--color-warmtaupe);
+}
+
+/* ── Section headings accent line ────────────────────── */
+
+/* ── Blockquote ──────────────────────────────────────── */
+.reveal blockquote {
+  border-left: 3px solid var(--color-warmtaupe);
+  padding-left: 1em;
+  color: var(--color-warmgrey);
+  font-style: italic;
+  background: none;
+  box-shadow: none;
+}
+
+/* ── Global size reduction to prevent overflow ───────── */
+.reveal .slides section {
+  font-size: 0.82em;
+}
+
+.reveal pre {
+  font-size: 0.78em;
+  line-height: 1.45;
+}
+
+.reveal table {
+  font-size: 0.80em;
+}
+
+.reveal ul,
+.reveal ol {
+  line-height: 1.55;
+}
+
+/* ── Callout boxes ───────────────────────────────────── */
+.reveal .callout {
+  font-size: 0.82em;
+  border-left-color: var(--color-warmtaupe);
+}
+.reveal .callout-tip {
+  border-left-color: var(--color-softsage) !important;
+}
+
+/* ── Slide number ────────────────────────────────────── */
+.reveal .slide-number,
+.reveal .slide-number a {
+  text-decoration: none;
+  color: var(--color-warmgrey);
+}
+.reveal .footer {
+  font-size: 0.55em;
+  color: var(--color-warmgrey);
+  letter-spacing: -0.01em;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
