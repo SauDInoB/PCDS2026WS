@@ -31,10 +31,6 @@ execute:
 - Coding **best practices**
 :::
 
-::: {.notes}
-Give participants a minute to settle. Mention that today is all setup — it may feel slow but it's the foundation for everything else in the week.
-:::
-
 ---
 
 ## Week at a Glance
@@ -42,16 +38,14 @@ Give participants a minute to settle. Mention that today is all setup — it may
 | Date | Time | Topic | Lead |
 |------|------|-------|------|
 | 02 Mar | 14h–16h | **Config / Install / Best Practices** | **TJ** |
-| 02 Mar | 16h15–18h | Variables, Data Types, Functions | Abel |
+| 02 Mar | 16h15–18h | Variables, Data Types, Functions | AN |
 | 05 Mar | 14h–16h | Data Import / Statistics | DMD |
 | 05 Mar | 16h15–17h | Data Visualisation | DMD |
 | 05 Mar | 17h–18h | Interfaces | DMD |
 | 06 Mar | 14h–16h | Regression Models | DMD |
 | 06 Mar | 16h15–18h | AI (Ollama, Positron Data Assistant) | DMD / TJ |
 
-::: {.notes}
-Quick orientation. Emphasise that each session builds on the previous one — today's setup is needed for everything else.
-:::
+
 
 # Why Python? {background-color="#2C3E50"}
 
@@ -99,10 +93,6 @@ Almost reads like English.
 
 ::::
 
-::: {.notes}
-Show the code block — even a non-programmer can guess what it does. That readability lowers the barrier to entry enormously.
-:::
-
 ---
 
 ## Python in Health Data Science
@@ -110,15 +100,11 @@ Show the code block — even a non-programmer can guess what it does. That reada
 Real-world uses in medicine and research:
 
 ::: {.incremental}
-- 🏥 **Clinical data analysis** — patient cohort studies, survival analysis
-- 🧬 **Genomics & bioinformatics** — sequence analysis, variant calling
-- 🩻 **Medical imaging** — DICOM processing, deep learning diagnostics
-- 📊 **Public health** — epidemiological modelling (COVID-19 models were largely Python)
-- 📝 **Reproducible research** — Quarto notebooks combining code + text
-:::
-
-::: {.notes}
-If anyone is sceptical about whether Python is "serious" enough for medicine, mention that Nature, The Lancet, and NEJM have all published studies with Python-based analyses.
+- **Clinical data analysis** — patient cohort studies, survival analysis
+- **Genomics & bioinformatics** — sequence analysis, variant calling
+- **Medical imaging** — DICOM processing, deep learning diagnostics
+- **Public health** — epidemiological modelling (COVID-19 models were largely Python)
+- **Reproducible research** — Quarto notebooks combining code + text
 :::
 
 ---
@@ -127,18 +113,18 @@ If anyone is sceptical about whether Python is "serious" enough for medicine, me
 
 | Language | Strengths | Role in health data |
 |----------|-----------|---------------------|
-| 🐍 **Python** | General purpose, ML/AI, readable | Analysis, models, pipelines, apps |
-| 📊 **R** | Statistics, visualisation | Clinical trials, bioinformatics |
-| 🗃️ **SQL** | Querying databases | Electronic records, registries |
-| ⚡ **Julia** | High-performance numerics | Simulations, pharmacokinetics |
-| 🔧 **Bash** | Automation, scripting | Data pipelines, batch processing |
+| **Python** | General purpose, ML/AI, readable | Analysis, models, pipelines, apps |
+| **R** | Statistics, visualisation | Clinical trials, bioinformatics |
+| **SQL** | Querying databases | Electronic records, registries |
+| **Julia** | High-performance numerics | Simulations, pharmacokinetics |
+| **Bash** | Automation, scripting | Data pipelines, batch processing |
 
 ::: {.callout-tip}
 They complement each other. Many real workflows combine **SQL** to extract, **Python** to analyse, and **R** for statistical reporting.
 :::
 
 ::: {.notes}
-No need to learn them all. The goal today is Python. But understanding the landscape helps you choose the right tool — and understand why Python is increasingly the default for data science in health.
+No need to learn them all, but understanding the landscape helps you choose the right tool — and understand why Python is increasingly the default for data science in health.
 :::
 
 # Installing Python {background-color="#2C3E50"}
@@ -174,10 +160,6 @@ cd my_project
 
 ::::
 
-::: {.notes}
-Spend 2 minutes on this. Open it live. Type `pwd` and `ls`. The goal is just to demystify it — many beginners are afraid of the terminal. Reassure them: you can't break anything by typing wrong commands (within reason).
-:::
-
 ---
 
 ## Python Versions
@@ -195,10 +177,6 @@ python --version
 python3 --version
 ```
 
-::: {.notes}
-Someone in the room may already have Python installed (e.g. via Anaconda). It's worth checking before installing again.
-:::
-
 ---
 
 ## Installing Python — Windows
@@ -214,10 +192,6 @@ python --version
 
 ::: {.callout-warning}
 Always tick "Add Python to PATH" during installation, or nothing will work from the terminal.
-:::
-
-::: {.notes}
-Live demo here. Walk slowly through the installer. The PATH checkbox is the single most common mistake beginners make.
 :::
 
 ---
@@ -243,10 +217,6 @@ Live demo here. Walk slowly through the installer. The PATH checkbox is the sing
 brew install python
 ```
 
-::: {.notes}
-Homebrew is worth mentioning for Mac users who want to manage multiple tools. Don't spend too long on it — for today's session the direct installer is perfectly fine.
-:::
-
 ---
 
 ## A Word on Anaconda
@@ -265,10 +235,6 @@ You'll often see **Anaconda** (or **Miniconda**) mentioned in tutorials — it's
 
 ::: {.callout-note}
 We use plain Python + `pip` this week. If a colleague sends you a `conda` command, it works the same way — just swap `pip install` → `conda install`.
-:::
-
-::: {.notes}
-Don't install Anaconda today. Just mention it so students don't panic when they see it elsewhere. The key message: it's not magic, just a different way to get Python and packages.
 :::
 
 ---
@@ -292,10 +258,6 @@ pip list
 
 Think of it like an **app store for Python libraries**.
 
-::: {.notes}
-They won't use pip directly today, but they'll see it used throughout the week. Just plant the concept.
-:::
-
 ---
 
 ## What is a Virtual Environment?
@@ -318,10 +280,6 @@ pip install pandas numpy
 
 ::: {.callout-tip}
 Positron (our IDE) manages virtual environments for you automatically.
-:::
-
-::: {.notes}
-Don't dive deep here — just mention it exists. Positron makes this transparent. Come back to it if asked.
 :::
 
 # What is an IDE? {background-color="#2C3E50"}
@@ -385,14 +343,10 @@ Show VS Code briefly if you have it open. Point out the sidebar, terminal, and e
 :::
 
 ::: {.column width="45%"}
-![Positron interface](https://positron.posit.co/images/positron-screenshot.png)
+![Positron interface](https://positron.posit.co/images/astropy.png)
 :::
 
 ::::
-
-::: {.notes}
-This is the main sell. If students have used RStudio, Positron will feel immediately familiar. If not, highlight the data viewer — seeing a table without writing `print(df)` is a game changer for beginners.
-:::
 
 ---
 
@@ -412,10 +366,6 @@ This is the main sell. If students have used RStudio, Positron will feel immedia
 - Run your first line: `print("Hello, health data!")`
 - Observe the **Console**, **Variables**, and **Plots** panels
 
-::: {.notes}
-Live demo. Create a new folder, open it in Positron, create a .py file, type a few lines and run them. Show the variable explorer populating as you assign variables.
-:::
-
 ---
 
 ## Positron — Interface Tour
@@ -424,10 +374,6 @@ Live demo. Create a new folder, open it in Positron, create a .py file, type a f
 |---|---|---|
 | **Top** | 📁 Explorer (files) | ✏️ Editor — your `.py` files |
 | **Bottom** | ⌨️ Console (output) | 📊 Variables · 📈 Plots / Viewer |
-
-::: {.notes}
-Point to each panel while running code live. Assign a variable in the editor, run it, show it appear in Variables. Load a CSV and show it in the Viewer.
-:::
 
 ---
 
@@ -455,19 +401,7 @@ print(f"BMI: {bmi:.1f}")
 
 Watch the **Variables panel** fill up as each line runs. ✨
 
-::: {.notes}
-This is the payoff moment for the whole installation section. Keep it light and fun. If someone has an error, use it as a teaching moment — reading error messages is a key skill.
-:::
-
 ---
-
-## ☕ Break — 10 minutes {background-color="#2C3E50"}
-
-*Back at [time + 10 min]*
-
-::: {.notes}
-Good moment to help anyone still stuck on installation before moving to Git.
-:::
 
 # Git & GitHub {background-color="#2C3E50"}
 
@@ -492,10 +426,6 @@ analysis_final_FINAL_use_this_one.py  ← 😅
 - You can go back to any point in history
 - Multiple people can work on the same project
 - Nothing is ever truly lost
-
-::: {.notes}
-Every researcher recognises the "final_FINAL" problem. This is the emotional hook — version control is the professional solution.
-:::
 
 ---
 
@@ -559,7 +489,7 @@ Your Computer                     GitHub.com
 *With GitHub Desktop: all of this is point-and-click.*
 
 ::: {.notes}
-Reinforce the mental model. "Commit" saves locally, "push" sends to the cloud, "pull" brings cloud changes back to you.
+"Commit" saves locally, "push" sends to the cloud, "pull" brings cloud changes back to you.
 :::
 
 # Best Practices {background-color="#2C3E50"}
@@ -576,10 +506,6 @@ Code is read **many more times** than it is written.
 . . .
 
 More practically: **future you** will thank present you.
-
-::: {.notes}
-Lighten the mood with the quote, then bring it back to reality. In health research, code may need to be audited, reproduced, or handed over to colleagues.
-:::
 
 ---
 
@@ -707,10 +633,6 @@ This structure scales from a small homework project to a full research pipeline.
 - ✅ Positron installed
 - ✅ GitHub Desktop installed + account created
 
-::: {.notes}
-This is the "exit ticket" — check that everyone has the tools ready before they leave. If someone is stuck on installation, this is the moment to help or arrange help during the break.
-:::
-
 ---
 
 ## Resources
@@ -724,9 +646,5 @@ This is the "exit ticket" — check that everyone has the tools ready before the
 ---
 
 ## Questions? {background-color="#2C3E50"}
-
-::: {.r-fit-text}
-🐍
-:::
 
 *See you at 16h15!*
