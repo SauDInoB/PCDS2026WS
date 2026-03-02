@@ -224,8 +224,8 @@
     "text": "Questions?\n\n🐍\n\nSee you at 16h15!"
   },
   {
-    "objectID": "Day 1 - Session 2/Worksheet_1.html#worksheet-1---fundamentals-practice",
-    "href": "Day 1 - Session 2/Worksheet_1.html#worksheet-1---fundamentals-practice",
+    "objectID": "d1s2/Worksheet_1.html#worksheet-1---fundamentals-practice",
+    "href": "d1s2/Worksheet_1.html#worksheet-1---fundamentals-practice",
     "title": "Python para Ciência de Dados em Saúde",
     "section": "Worksheet 1 - Fundamentals Practice",
     "text": "Worksheet 1 - Fundamentals Practice\nThe median of a set of numbers is the value separating the higher half from the lower half of a data sample, a population, or a probability distribution. The median of a finite list of numbers is the “middle” number, when those numbers are listed in order from smallest to greatest.\nIf the data set has an odd number of observations, the middle one is selected (after arranging in ascending order). For example, the following list of seven numbers,\n1, 3, 3, 6, 7, 8, 9\nhas the median of 6, which is the fourth value.\nIf the data set has an even number of observations, there is no distinct middle value and the median is usually defined to be the arithmetic mean of the two middle values. For example, this data set of 8 numbers\n1, 2, 3, 4, 5, 6, 8, 9\nhas a median value of 4.5, which results from \\((4+5)/2\\)\nBody mass index (BMI) is a value derived from the mass (weight) and height of a person. The BMI is defined as the body mass divided by the square of the body height, and is expressed in units of kg/m2, resulting from mass in kilograms (kg) and height in metres (m).\nTASK A (20 minutes)\nCreate a function calc_median that will calculate the median of a given list of numbers. Use the bubble sort algorithm.\nInput: my_list = [13, 0, 12, 3, 2, 17, 8, 1] print(calc_median(my_list))\nOutput: 5.5\nTASK B (10 minutes)\nCrate a function compute_bmi(weight_kg, height_cm) that will calculate the BMI of a given weight (kg) and height (cm).\nInput: patient_weight = 70.3 patient_height = 181 print(compute_bmi(patient_weight, patient_height))\nOutput: 21.4584414395165"
