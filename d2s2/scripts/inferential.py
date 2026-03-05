@@ -230,4 +230,3 @@ def test_two_categoric_variables(df,var1,var2):
     print("Fisher's p-value:", p)
 
 test_two_categoric_variables(my_df,"sex","Asthma_diagnosis")
-
