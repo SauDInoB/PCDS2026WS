@@ -135,9 +135,6 @@ with col2:
     st.image("page_support/winterschool.png",width=150)
 
 
-    
-
-
 # def data_prep(df):
 #     categorical_list=[
 #         "RIAGENDR",
