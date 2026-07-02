@@ -78,3 +78,4 @@ pip install pandas numpy scipy matplotlib seaborn streamlit
 - **Abel Nicolau** — anicolau@med.up.pt
 - **Daniel Martinho Dias** — dmdias@med.up.pt
 - **Tiago Jacinto** — tiagojacinto@med.up.pt
+- **Inês Domingues** - idomingues@med.up.pt
